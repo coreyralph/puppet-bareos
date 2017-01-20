@@ -38,14 +38,15 @@ class bareos::install::repo {
         path        => '/bin:/sbin:/usr/bin:/usr/sbin',
         refreshonly => true,
       }
-  },
-  'Debian' : {
-    include apt
-    $url = "http://download.bareos.org/bareos/release/latest/Debian_${::lsbmajdistrelease}.0/"
-    apt::source { 'bareos' :
-      location => $url,
-      release  => '/',
-      repos    => 'main', 
+    },
+    'Debian' : {
+      include apt
+      $url = "http://download.bareos.org/bareos/release/latest/Debian_${::lsbmajdistrelease}.0/"
+      apt::source { 'bareos' :
+        location => $url,
+        release  => '/',
+        repos    => 'main',
+      }
     }
   }
 }
